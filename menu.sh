@@ -13,7 +13,7 @@ display
     git config --global user.signingkey $keyId
     git config --global commit.gpgsign true
     (gpg --armor --export $key) | lolcat
-    (printf '\n%s\n\n' "====Add the above key to github=====") | lolcat
+    (printf '\n%s\n\n' "================Add the above key to github===================") | lolcat
     menu
   elif [ $input == 2 ]
   then 
