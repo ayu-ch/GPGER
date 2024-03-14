@@ -5,14 +5,14 @@ sign(){
     read sign
     if [ $sign ==  'yes' ]
     then
-      keyId=$(gpg --list-secret-keys --keyid-format=long | awk '$1 ~ /sec/ {print $2}' | awk -F "/" '{print $2}' | head -1)
+      keyId=$(gpg --list-secret-keys --keyid-format=long | awk '$1 ~ /sec/ {print $2}' | awk -F "/" '{print $2}' | tail -1)
       git config --global user.signingkey $keyId
       git config --global commit.gpgsign true
       (gpg --armor --export $key) | lolcat
       (printf '\n%s\n\n' "================Add the above key to github===================") | lolcat
     
-    elif [ $sign != 'no' || $sign != 'yes' ]
-    then
+    elif [ $sign != 'no' ]
+    then 
       sign
     fi
 }
