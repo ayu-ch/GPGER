@@ -15,4 +15,9 @@ then
     exit
 fi
 
-menu
+looper=true
+
+while [ "$looper" ];
+do
+    menu
+done
