@@ -5,15 +5,14 @@ source menu.sh
 
 if ! command -v lolcat &> /dev/null
 then
-    
-    sudo apt-get update
-    sudo apt-get install lolcat
+    echo "Please install lolcat on your machine"
+    exit
 fi
 
 if ! command -v gpg &> /dev/null
 then
-    sudo apt-get update
-    sudo apt-get install gnupg
+    echo "Please install gnupg on your machine"
+    exit
 fi
 
 menu
