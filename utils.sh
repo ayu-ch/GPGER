@@ -8,7 +8,7 @@ sign(){
       keyId=$(gpg --list-secret-keys --keyid-format=long | awk '$1 ~ /sec/ {print $2}' | awk -F "/" '{print $2}' | tail -1)
       git config --global user.signingkey $keyId
       git config --global commit.gpgsign true
-      (gpg --armor --export $key) | lolcat
+      (gpg --armor --export $keyId) | lolcat
       (printf '\n%s\n\n' "================Add the above key to github===================") | lolcat
     
     elif [ $sign != 'no' ]
